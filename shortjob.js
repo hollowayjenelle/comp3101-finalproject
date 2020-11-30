@@ -50,10 +50,10 @@ function draw(){
         th += '<th width: 50px;>P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</th>';
     });
         $('fresh').html('<table id="resultTable"><tr>' + th + '</tr></table>');
-        $('fresh').prepend('<div id="curtain" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
+        $('fresh').prepend('<div id="animated-div" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
         
-        $('#curtain').width($('#resultTable').width());
-        $('#curtain').css({left: $('#resultTable').position().left});
+        $('#animated-div').width($('#resultTable').width());
+        $('#animated-div').css({left: $('#resultTable').position().left});
         
         var sum = 0;
         $('.executime').each(function() {
@@ -61,10 +61,10 @@ function draw(){
         });
         
         console.log($('#resultTable').width());
-        var distance = $("#curtain").css("width");
+        var distance = $("#animated-div").css("width");
         
         animationStep(sum, 0);
-        jQuery('#curtain').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
+        jQuery('#animated-div').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
 }
 
 function animationStep(steps, cur) {
