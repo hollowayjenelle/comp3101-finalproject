@@ -2,7 +2,9 @@
 <html>
     <head>
         <title>Shortest Job First Scheduling</title>
-        
+        <link rel="stylesheet"  type="text/css" href="shortjob.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="shortjob.js"></script>
     </head>
     <body>
         <div id="main-frame">
@@ -29,11 +31,13 @@
                 <input type="button" value="Animate" onclick="draw()" />
             </div>
             <br> <br>
-            <fresh>
-
-            </fresh>
+            
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="shortjob.js"></script>
+        <fresh>
+
+        </fresh>
+        <p style="visibility: hidden;">
+            Timer: <strong id="timer"></strong> sec
+            </p>
     </body>
 </html>
