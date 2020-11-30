@@ -1,0 +1,9 @@
+.shape1{
+    width: 120px;
+    height: 40px;
+    border-radius: 10px 120px 120px 10px;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    background: #f7d;
+}
