@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Shortest Job First Scheduling</title>
+        <title>Round Robin Scheduling</title>
         <link rel="stylesheet"  type="text/css" href="shortjob.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="shortjob.js"></script>
+        <script src="roundrobin.js"></script>
     </head>
     <body>
         <div id="main-frame">
-            <h2>Shortest Job First Scheduling</h2>
+            <h2>Round Robin Scheduling</h2>
             <div id="table-frame">
                 <table id="process-table">
                     <tr>
                         <th>Process</th>
+                        <th>Arrival Time</th>
                         <th>Execute Time</th>
                     </tr>
                     <tr>
                         <td>P0</td>
+                        <td>0</td>
                         <td><input class="executime" type="text" value="4"/></td>
                     </tr>
                     <tr>
                         <td>P1</td>
+                        <td>1</td>
                         <td><input class="executime" type="text" value="2"/></td>
                     </tr>
                 </table>
@@ -29,7 +32,8 @@
                     <input class="btn3" type="button" value="Add Process" onclick="addprocess()" />
                     <input class="btn3" type="button" value="Delete Last Process" onclick="deleteprocess()" />
                 </div>
-                <br><br>
+                <br>
+                <p id="quantumP">Quantum: <input style="width: 50px;" id="quantum" type="text" value="3"/></p>
                 <input class="btn" type="button" value="Animate" onclick="draw()" />
             </div>
             <br> <br>

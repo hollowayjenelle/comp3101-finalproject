@@ -6,7 +6,7 @@
     padding: 20px;
 }
 
-#process-table, #btn1, .btn, fresh{
+#process-table, #btn1, .btn, section{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,21 +40,18 @@ h2{
     text-align: center;
 }
 
-fresh th {
+section th {
     background: white;
     text-align: left;
-    /*border: 1px solid black;*/
     height: 400 px;
 }
 fresh td {
-    /*border: 1px solid black;*/
     border-bottom: 0;
     height: 20px;
     text-align: left;
 }
 
 div th, div td {
-    /*border: 1px solid black;*/
     text-align: center;
 }
 
