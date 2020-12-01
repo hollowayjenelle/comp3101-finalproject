@@ -7,19 +7,21 @@
     <body>
         <div id="main-frame">
             <h2>First Come First Served</h2>
-            <h4>Non Pre-emptive, arrival time is 0 for all processes</h4>
             <div id="table-frame">
                 <table id="process-table">
                     <tr>
                         <th>Process</th>
+                        <th>Arrival Time</th>
                         <th>Execute Time</th>
                     </tr>
                     <tr>
                         <td>P0</td>
+                        <td>0</td>
                         <td><input class="executime" type="text" value="4"/></td>
                     </tr>
                     <tr>
                         <td>P1</td>
+                        <td>1</td>
                         <td><input class="executime" type="text" value="2"/></td>
                     </tr>
                 </table>
@@ -28,8 +30,8 @@
                 <div></div>
                 <input type="button" value="Animate" onclick="draw();" />
             <br> </br>
-            <fresh>
-            </fresh>
+            <section>
+            </section>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="fcfs.js"></script>
     </body>
