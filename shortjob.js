@@ -57,22 +57,10 @@ function draw(){
     });
         //table created within the section element
         $('section').html('<table id="resultTable"><tr>' + th + '</tr></table>');
-        //div created that surrounds the section element 
-        $('section').prepend('<div id="animated-div" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
         
-        //the div width equals the resultTable
-        $('#animated-div').width($('#resultTable').width());
-        //the div positioned at the same horizontal position as the resultTable
-        $('#animated-div').css({left: $('#resultTable').position().left});
-        
-        var sum = 0;
-        $('.executime').each(function() {
-            sum += Number($(this).val());
-        });
-        
-        var distance = $("#animated-div").css("width");
-        
-        //swipe animation
-        jQuery('#animated-div').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
+        $("#resultTable th").hide();
+        $("#resultTable th").each(function (index){
+            $(this).delay(index*500).show(1000);
+        })
 }
 

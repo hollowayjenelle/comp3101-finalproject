@@ -56,24 +56,12 @@ function draw() {
       process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</button></th>';      
     });
 
-    $('section').html('<table id="resultTable"><tr>' + process+ '</tr></table>');
-
-    $('section').prepend('<div id="animated-div" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
+    $('section').html('<table id="resultTable"><tr>' + process + '</tr></table>');
         
-    //the div width equals the resultTable
-    $('#animated-div').width($('#resultTable').width());
-    //the div positioned at the same horizontal position as the resultTable
-    $('#animated-div').css({left: $('#resultTable').position().left});
-        
-    var sum = 0;
-    $('.executime').each(function() {
-        sum += Number($(this).val());
-    });
-        
-    var distance = $("#animated-div").css("width");
-        
-    //swipe animation
-    jQuery('#animated-div').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
+        $("#resultTable th").hide();
+        $("#resultTable th").each(function (index){
+            $(this).delay(index*500).show(1000);
+        })
 
 
 }
