@@ -1,25 +1,63 @@
+#main-frame{
+    margin: auto;
+    width: 30%;
+    height: 100%;
+    border: 3px solid blue;
+    padding: 20px;
+}
+
+#process-table, #btn1, .btn, fresh{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn1{
+    align-items: center;
+}
+
+.btn{
+    margin: auto;
+    padding: 15px 25px;
+}
+
+.btn2{
+    border-radius: 12px;
+    font-size: 16px;
+    background-color: dodgerblue;
+    color: white;
+}
+
+.btn3, .btn{
+    background-color: dodgerblue;
+    color: white;
+}
+
+.btn3:hover, .btn:hover{
+    background-color: mediumblue;
+}
+h2{
+    text-align: center;
+}
+
 fresh th {
-    background: linear-gradient(WhiteSmoke, lightgray);
+    background: white;
     text-align: left;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     height: 400 px;
 }
 fresh td {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     border-bottom: 0;
-    /*border-right: 0;*/
     height: 20px;
     text-align: left;
 }
 
 div th, div td {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     text-align: center;
 }
-table {
-    display: inline;
-    border-collapse: collapse;
-}
+
 input {
     text-align: center;
 }

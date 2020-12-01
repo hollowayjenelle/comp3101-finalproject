@@ -9,7 +9,6 @@
     <body>
         <div id="main-frame">
             <h2>Shortest Job First Scheduling</h2>
-            <h4>Non Pre-emptive, arrival time is 0 for all processes</h4>
             <div id="table-frame">
                 <table id="process-table">
                     <tr>
@@ -25,19 +24,22 @@
                         <td><input class="executime" type="text" value="2"/></td>
                     </tr>
                 </table>
-                <input type="button" value="Add Process" onclick="addprocess()" />
-                <input type="button" value="Delete Last Process" onclick="deleteprocess()" />
                 <br>
-                <input type="button" value="Animate" onclick="draw()" />
+                <div id="btn1">
+                    <input class="btn3" type="button" value="Add Process" onclick="addprocess()" />
+                    <input class="btn3" type="button" value="Delete Last Process" onclick="deleteprocess()" />
+                </div>
+                <br><br>
+                <input class="btn" type="button" value="Animate" onclick="draw()" />
             </div>
             <br> <br>
-            
-        </div>
-        <fresh>
+            <fresh>
 
-        </fresh>
-        <p style="visibility: hidden;">
-            Timer: <strong id="timer"></strong> sec
-            </p>
+            </fresh>
+            <p style="visibility: hidden;">
+                Timer: <strong id="timer"></strong> sec
+                </p>
+        </div>
+        
     </body>
 </html>

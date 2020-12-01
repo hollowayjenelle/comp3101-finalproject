@@ -47,7 +47,7 @@ function draw(){
     });
 
     $.each(executeTimes, function(key, value){
-        th += '<th width: 50px;>P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</th>';
+        th += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</button></th>';
     });
         $('fresh').html('<table id="resultTable"><tr>' + th + '</tr></table>');
         $('fresh').prepend('<div id="animated-div" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
