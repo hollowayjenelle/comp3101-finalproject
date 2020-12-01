@@ -1,0 +1,54 @@
+        section th {
+            border: 1px solid rgb(139, 139, 139);
+            background: rgb(52, 157, 228);
+            text-align: center;
+            
+            height: 400 px;
+        }
+        section td {
+            border: 1px solid rgb(139, 139, 139);
+            height: 20px;
+            text-align: center;
+        }
+        .btn1{
+            align-items: center;
+        }
+        #algoTable, #btn1, .btn, section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #main-frame{
+            margin: auto;
+            width: 40%;
+            height: 100%;
+            border: 3px solid blue;
+            padding: 20px;
+        }
+        .btn{
+            margin: auto;
+            padding: 15px 25px;
+        }
+
+        .btn3, .btn{
+            background-color: dodgerblue;
+            color: white;
+        }
+        div th, div td {
+            
+            text-align: center;
+        }
+        table {
+            display: inline;
+            border-collapse: collapse;
+        }
+        input {
+            text-align: center;
+        }
+        #curtain {
+          background-color: white;
+        }
+
+        #box {
+            border: 1px solid red;
+          }

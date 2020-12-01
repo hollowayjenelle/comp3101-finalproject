@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="priority.css">
+    </head>
+    <script src="priority.js"></script>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    
+<body>
+
+<div id="main-frame">
+  <h1>CPU Scheduling</h1>
+<div>
+    <div>
+      <form id="algorithm">
+        <input type="radio" name="algorithm" value="priority" checked/> Priority scheduling<br/>
+      </form>
+      <br>
+    </div>
+
+      <table id="algoTable">
+          <tr>
+              <th>Process   </th>
+              <th>Arrival Time</th>
+              <th>Execute Time</th>
+              <th>Priority</th>
+          </tr>
+          <tr>
+              <td>P0</td>
+              <td>0</td>
+              <td><input type="text" value="2" /></td>
+              <td><input type="text" value="1"/></td>
+          </tr>
+      </table>
+      </div>
+      <div class="btn1">
+      <input class ="btn3" type="button" value="add row" onclick="addProcess();" />
+      <input class ="btn3" type="button" value="delete row" onclick="deleteProcess();" />
+  
+    </div>    
+      <input class = "btn" type="button" value="Start" onclick="draw();" />
+      <br/><br/>
+
+      <section> 
+
+      </section>
+      <p>
+      Timer: <strong id="timer"></strong> sec
+      </p>
+    </div>
+    </body>
+    </html>
+   
