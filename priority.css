@@ -45,11 +45,6 @@ section th {
     text-align: left;
     height: 400 px;
 }
-fresh td {
-    border-bottom: 0;
-    height: 20px;
-    text-align: left;
-}
 
 div th, div td {
     text-align: center;
