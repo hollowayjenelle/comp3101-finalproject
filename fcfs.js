@@ -3,20 +3,23 @@ function addprocess(){
 
     var lastRow = table.rows[table.rows.length-1];
     var firstCell = lastRow.cells[0].innerHTML;
-    var lastRowNumber;
+    var lastRowNumber, arrival;
     if (table.rows.length <= 1){
         lastRowNumber = -1;
+	arrival = -1;
     } else{
         lastRowNumber = parseInt(firstCell[1]);
+	arrival = parseInt(firstCell[1]);
     }
     
 
-    var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
-    
+    var cell3 = row.insertCell(2);
+
     cell1.innerHTML = 'P'+ (lastRowNumber + 1);
-    cell2.innerHTML = '<input class="executime" type="text" value=""/>';
+    cell2.innerHTML = arrival + 1;
+    cell3.innerHTML = '<input class="executime" type="text" value=""/>';
 
 }
 
@@ -24,41 +27,25 @@ function deleteprocess(){
     document.getElementById("process-table").deleteRow(-1);
 }
 
-function animate() {
-	$('fresh').prepend('<div id="curtain" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
-  
-  $('#curtain').width($('#resultTable').width());
-  $('#curtain').css({left: $('#resultTable').position().left});
-  
-  var sum = 0;
-  $('.exectime').each(function() {
-      sum += Number($(this).val());
-  });
-  
-  console.log($('#resultTable').width());
-  var distance = $("#curtain").css("width");
-  
-  animationStep(sum, 0);
-  jQuery('#curtain').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
-}
-
 function draw(){
-    $('fresh').html('');
+    $('section').html('');
     var processtable = $('#process-table tr');
     var th = '';
-    var td = '';
 
     $.each(processtable, function(key, value) {
       if (key == 0) return true;
       var executeTime = parseInt($(value.children[2]).children().first().val());
-      th += '<th style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + (key - 1) + '</th>';
-      td += '<td>' + executeTime + '</td>';
+      th += '<th style="width: 50px"><button class="btn2">P' + (key - 1) + 'Ex Time: ' + executeTime 'ms</button></th>';
+	     th += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</button></th>';
     });
 
-    $('fresh').html('<table id="resultTable"><tr>' + th + '</tr></table>');
-        $('fresh').prepend('<div id="animated-div" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
+     $('section').html('<table id="resultTable"><tr>' + th + '</tr></table>');
+        //div created that surrounds the section element 
+        $('section').prepend('<div id="animated-div" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
         
+        //the div width equals the resultTable
         $('#animated-div').width($('#resultTable').width());
+        //the div positioned at the same horizontal position as the resultTable
         $('#animated-div').css({left: $('#resultTable').position().left});
         
         var sum = 0;
@@ -66,21 +53,10 @@ function draw(){
             sum += Number($(this).val());
         });
         
-        console.log($('#resultTable').width());
         var distance = $("#animated-div").css("width");
         
-        animationStep(sum, 0);
+        //swipe animation
         jQuery('#animated-div').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
 }
 
-function animationStep(steps, cur) {
-    $('#timer').html(cur);
-	if(cur < steps) {
-		setTimeout(function(){ 
-   	    animationStep(steps, cur + 1);
-  	}, 500);
-  }
-  else {
-  }
-}
 
