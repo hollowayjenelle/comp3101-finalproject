@@ -1,109 +1,80 @@
+function addprocess(){
+  var table = document.getElementById("algoTable");
 
-
-/*function start(x) {
-    var duration = x*1000; // it should finish in 5 seconds !
-    $("#box").stop().css("width", 0).animate({
-      width: 100
-    }, {
-      duration: duration,
-      progress: function(promise, progress, ms) {
-        $(this).text(Math.round(progress * 100) + '%');
-      }
-    });
-  }*/
-
-function addProcess() {
-    // First check if a <tbody> tag exists, add one if not
-    var last = $('#algoTable tr:last');
-    var previous = parseInt(last.children()[1].innerText);
-
-    if ($("#algoTable tbody").length == 0) {
-        $("#algoTable").append("<tbody></tbody>");}
-
-    // Append data to the table
-    $("#algoTable tbody").append(
-    "<tr>"+
-    "<td>" + "P"
-    + (previous + 1) + "</td>" +
-    "<td>"+(previous + 1) + "</td>" +
-    "<td>" + '<input class="burst" id="burst" type="text"/>' + "</td>" +
-    "<td>" + '<input class="priority" id="priority" type="text"/>' + "</td>" +
-    "</tr>");
+  var lastRow = table.rows[table.rows.length-1]; //gets the contents of the last row
+  var firstCell = lastRow.cells[0].innerHTML; //gets the content of the first cell in the last row
+  var lastRowNumber, arrival;
+  if (table.rows.length <= 1){
+      lastRowNumber = -1;
+      arrival = -1;
+  } else{
+      lastRowNumber = parseInt(firstCell[1]); //gets the number from the first cell of the last row
+      arrival = parseInt(firstCell[1]);
+  }
+  
+  //inserts a new row and new cells
+  var row = table.insertRow(-1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  
+  //add content to the new cells
+  cell1.innerHTML = 'P'+ (lastRowNumber + 1);
+  cell2.innerHTML = arrival + 1;
+  cell3.innerHTML = '<input class="executime" type="text" value=""/>';
+  cell4.innerHTML = '<input type="text" value=""/>'
 
 }
 
-var index = 1;
-function deleteProcess() {
-    var a= document.getElementById("algoTable").deleteRow(-1);
-  }
+function deleteprocess(){
+  //delete last row
+  document.getElementById("algoTable").deleteRow(-1);
+}
   
 
-
-function animate() {
-  $('section').prepend('<div id="slide" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
-    
-  $('#slide').width($('#resultTable').width());    
-  $('#slide').css({left: $('#resultTable').position().left});
-    
-  var sum = 0;
-  $('.exectime').each(function() {
-      sum += Number($(this).val());
-    });
-    
-  console.log($('#resultTable').width());
-  var distance = $("#slide").css("width");
-    
-  animationStep(sum, 0);
-  jQuery('#slide').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
-  }
-  
-function animationStep(steps, cur) {
-  $('#timer').html(cur);
-  if(cur < steps) {
-    setTimeout(function(){
-      animationStep(steps, cur + 1);
-    }, 500);
-  }
-  else {
-    }
-  }
 function draw() {
   $('section').html('');
+  var processtable = $('#algoTable tr');
   var process = '';
-  var b_time = '';
+  var executeTimes = [];
 
-  var algorithm = $('input[name=algorithm]:checked', '#algorithm').val();
-  
-    if (algorithm == "priority") {
-    var executeTimes = [];
-
-    $.each($('#algoTable tr'), function (key, value) {
+  $.each(processtable, function (key, value) {
       if (key == 0) return true;
       var executeTime = parseInt($(value.children[2]).children().first().val());
       var priority = parseInt($(value.children[3]).children().first().val());
       executeTimes[key - 1] = { "executeTime": executeTime, "P": key - 1, "priority": priority };
-    });
+  });
 
-    executeTimes.sort(function (a, b) {
+  executeTimes.sort(function (a, b) {
       if (a.priority == b.priority)
         return a.P - b.P;
       return b.priority - a.priority
+  });
+
+  $.each(executeTimes, function (key, value) {
+      process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</button></th>';      
     });
 
-    $.each(executeTimes, function (key, value) {
-    
+    $('section').html('<table id="resultTable"><tr>' + process+ '</tr></table>');
 
-        process += '<th style="height: 40px; width: ' + value.executeTime * 20 + 'px;">P' + value.P + '</th>';  ;
-        b_time+= '<td>' + value.executeTime + '</td>';
-
-        $('section').html('<table id="resultTable" style="width: 70%"><tr>'
-        + process+ '</tr><tr>' + b_time + '</tr></table>'
-       );
+    $('section').prepend('<div id="animated-div" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
         
+    //the div width equals the resultTable
+    $('#animated-div').width($('#resultTable').width());
+    //the div positioned at the same horizontal position as the resultTable
+    $('#animated-div').css({left: $('#resultTable').position().left});
+        
+    var sum = 0;
+    $('.executime').each(function() {
+        sum += Number($(this).val());
     });
+        
+    var distance = $("#animated-div").css("width");
+        
+    //swipe animation
+    jQuery('#animated-div').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
 
-   
-}
-animate();
+
 }
 

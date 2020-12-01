@@ -3,9 +3,10 @@ function addprocess(){
 
     var lastRow = table.rows[table.rows.length-1]; //gets the contents of the last row
     var firstCell = lastRow.cells[0].innerHTML; //gets the content of the first cell in the last row
-    var lastRowNumber;
+    var lastRowNumber, arrival;
     if (table.rows.length <= 1){
         lastRowNumber = -1;
+        arrival = -1;
     } else{
         //gets the number from the first cell of the last row
         lastRowNumber = parseInt(firstCell[1]);

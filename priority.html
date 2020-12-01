@@ -2,50 +2,42 @@
 <html>
     <head>
         <link rel="stylesheet" href="priority.css">
+        <script src="priority.js"></script>
+      <script src="jquery-3.5.1.min.js"></script>
     </head>
-    <script src="priority.js"></script>
-    <script src="jquery-3.5.1.min.js"></script>
     
 <body>
 
 <div id="main-frame">
-  <h1>CPU Scheduling</h1>
-<div>
-    <div>
-      <form id="algorithm">
-        <input type="radio" name="algorithm" value="priority" checked/> Priority scheduling<br/>
-      </form>
-      <br>
-    </div>
+  <h2>Priority Scheduling</h2>
+  <div id="table-frame">
+        <table id="algoTable">
+            <tr>
+                <th>Process   </th>
+                <th>Arrival Time</th>
+                <th>Execute Time</th>
+                <th>Priority</th>
+            </tr>
+            <tr>
+                <td>P0</td>
+                <td>0</td>
+                <td><input class="executime" type="text" value="2" /></td>
+                <td><input type="text" value="1"/></td>
+            </tr>
+        </table>
+        <br>
+        <div id="btn1">
+          <input class="btn3" type="button" value="Add Process" onclick="addprocess()" />
+          <input class="btn3" type="button" value="Delete Last Process" onclick="deleteprocess()" />
+        </div>
+        <br><br>
+        <input class="btn" type="button" value="Start" onclick="draw()" />
+        <br/><br/>
+  </div>
+  <section> 
 
-      <table id="algoTable">
-          <tr>
-              <th>Process   </th>
-              <th>Arrival Time</th>
-              <th>Execute Time</th>
-              <th>Priority</th>
-          </tr>
-          <tr>
-              <td>P0</td>
-              <td>0</td>
-              <td><input type="text" value="2" /></td>
-              <td><input type="text" value="1"/></td>
-          </tr>
-      </table>
-      </div>
-      <div class="btn1">
-      <input class ="btn3" type="button" value="add row" onclick="addProcess();" />
-      <input class ="btn3" type="button" value="delete row" onclick="deleteProcess();" />
-  
-    </div>    
-      <input class = "btn" type="button" value="Start" onclick="draw();" />
-      <br/><br/>
-
-      <section> 
-
-      </section>
-      
-    </div>
+  </section>
+</div>
     </body>
     </html>
    

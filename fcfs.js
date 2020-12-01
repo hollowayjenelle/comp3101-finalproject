@@ -35,8 +35,7 @@ function draw(){
     $.each(processtable, function(key, value) {
       if (key == 0) return true;
       var executeTime = parseInt($(value.children[2]).children().first().val());
-      th += '<th style="width: 50px"><button class="btn2">P' + (key - 1) + 'Ex Time: ' + executeTime 'ms</button></th>';
-	     th += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</button></th>';
+      th += '<th style="width: 50px"><button class="btn2">P' + (key - 1) + '<br>Ex Time: ' + executeTime + 'ms</button></th>';
     });
 
      $('section').html('<table id="resultTable"><tr>' + th + '</tr></table>');

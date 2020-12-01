@@ -1,54 +1,63 @@
-        section th {
-            border: 1px solid rgb(139, 139, 139);
-            background: rgb(52, 157, 228);
-            text-align: center;
-            
-            height: 400 px;
-        }
-        section td {
-            border: 1px solid rgb(139, 139, 139);
-            height: 20px;
-            text-align: center;
-        }
-        .btn1{
-            align-items: center;
-        }
-        #algoTable, #btn1, .btn, section{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #main-frame{
-            margin: auto;
-            width: 40%;
-            height: 100%;
-            border: 3px solid blue;
-            padding: 20px;
-        }
-        .btn{
-            margin: auto;
-            padding: 15px 25px;
-        }
+#main-frame{
+    margin: auto;
+    width: 50%;
+    height: 100%;
+    border: 3px solid blue;
+    padding: 20px;
+}
 
-        .btn3, .btn{
-            background-color: dodgerblue;
-            color: white;
-        }
-        div th, div td {
-            
-            text-align: center;
-        }
-        table {
-            display: inline;
-            border-collapse: collapse;
-        }
-        input {
-            text-align: center;
-        }
-        #curtain {
-          background-color: white;
-        }
+#algoTable, #btn1, .btn, section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        #box {
-            border: 1px solid red;
-          }
+.btn1{
+    align-items: center;
+}
+
+.btn{
+    margin: auto;
+    padding: 15px 25px;
+}
+
+.btn2{
+    border-radius: 12px;
+    font-size: 16px;
+    background-color: dodgerblue;
+    color: white;
+}
+
+.btn3, .btn{
+    background-color: dodgerblue;
+    color: white;
+}
+
+.btn3:hover, .btn:hover{
+    background-color: mediumblue;
+}
+h2{
+    text-align: center;
+}
+
+section th {
+    background: white;
+    text-align: left;
+    height: 400 px;
+}
+fresh td {
+    border-bottom: 0;
+    height: 20px;
+    text-align: left;
+}
+
+div th, div td {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+}
+#animated-div {
+  background-color: white;
+}
