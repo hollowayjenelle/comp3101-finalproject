@@ -46,13 +46,11 @@ section th {
     height: 400 px;
 }
 
-div th, div td {
+th, td {
     text-align: center;
 }
 
 input {
     text-align: center;
 }
-#animated-div {
-  background-color: white;
-}
+
