@@ -36,24 +36,24 @@ function draw(){
 
     var burstarr = [];
 
-    //for each row, the execution time and the process # is extracted
+     //for each row, the execution time and the process # is extracted
     $.each(processtable, function(key, value){
         if (key == 0) return true;
-        var burst = parseInt($(value.children[1]).children().first().val());
-        burstarr[key - 1] = {"executeTime": burst, "P": key -1};
+        var executeTime = parseInt($(value.children[1]).children().first().val());
+        executeTimes[key - 1] = {"executeTime": executeTime, "P": key -1};
     });
 
     //compare and sort the execution times
-    burstarr.sort(function (a, b){
-        if (a.burst == b.burst){
+    executeTimes.sort(function (a, b){
+        if (a.executeTime == b.executeTime){
             return a.P - b.P
         }
-        return a.burst - b.burst
+        return a.executeTime - b.executeTime
     });
 
     //for each value in the sorted execution time array, a table header with a button is created with the process and the execution time
-    $.each(burstarr, function(key, value){
-        process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.burst + 'ms</button></th>';
+    $.each(executeTimes, function(key, value){
+        process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</button></th>';
     });
         //table created within the section element
         $('section').html('<table id="result"><tr>' + process + '</tr></table>');
