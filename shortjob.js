@@ -40,20 +40,20 @@ function draw(){
     $.each(processtable, function(key, value){
         if (key == 0) return true;
         var burst = parseInt($(value.children[1]).children().first().val());
-        burstArr[key - 1] = {"executeTime": burst, "P": key -1};
+        burstArr[key - 1] = {"burstTime": burst, "P": key -1};
     });
 
     //compare and sort the execution times
     burstArr.sort(function (a, b){
-        if (a.burst == b.burst){
+        if (a.burstTime == b.burstTime){
             return a.P - b.P
         }
-        return a.burst - b.burst
+        return a.burstTime - b.burstTime
     });
 
     //for each value in the sorted execution time array, a table header with a button is created with the process and the execution time
     $.each(burstArr, function(key, value){
-        process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.burst + 'ms</button></th>';
+        process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.burstTime + 'ms</button></th>';
     });
         //table created within the section element
         $('section').html('<table id="result"><tr>' + process + '</tr></table>');
