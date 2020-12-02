@@ -46,7 +46,7 @@ function draw(){
     $.each(processtable, function(key, value){
         if(key == 0) return true;
         var burst = parseInt($(value.children[2]).children().first().val());
-        burstarr[key - 1] = {"executeTime": burst, "P": key - 1};
+        burstarr[key - 1] = {"burstTime": burst, "P": key - 1};
     });
 
     var complete = false; //variable to keep track of the execution time for the process has reached 0
@@ -58,8 +58,8 @@ function draw(){
         */
         $.each(burstarr, function(key,value){
             if(value.burst > 0){
-                process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + (value.burst > quantum ? quantum : value.burst) + 'ms</button></th>';
-                value.burst -= quantum;
+                process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + (value.burstTime > quantum ? quantum : value.burstTime) + 'ms</button></th>';
+                value.burstTime -= quantum;
                 complete = false;
             }
         });
