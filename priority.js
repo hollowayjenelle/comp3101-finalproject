@@ -56,10 +56,10 @@ function draw() {
       process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</button></th>';      
     });
 
-    $('section').html('<table id="resultTable"><tr>' + process + '</tr></table>');
+    $('section').html('<table id="result"><tr>' + process + '</tr></table>');
         
-        $("#resultTable th").hide();
-        $("#resultTable th").each(function (index){
+        $("#result th").hide();
+        $("#result th").each(function (index){
             $(this).delay(index*500).show(1000);
         })
 

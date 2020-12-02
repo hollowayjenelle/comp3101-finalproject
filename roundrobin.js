@@ -37,7 +37,7 @@ function deleteprocess(){
 function draw(){
     $('section').html('');
     var processtable = $('#process-table tr');
-    var th = '';
+    var process = '';
 
     var quantum = $('#quantum').val();
     var executeTimes = [];
@@ -58,7 +58,7 @@ function draw(){
         */
         $.each(executeTimes, function(key,value){
             if(value.executeTime > 0){
-                th += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + (value.executeTime > quantum ? quantum : value.executeTime) + 'ms</button></th>';
+                process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + (value.executeTime > quantum ? quantum : value.executeTime) + 'ms</button></th>';
                 value.executeTime -= quantum;
                 complete = false;
             }
@@ -66,10 +66,10 @@ function draw(){
     }
         //table created within the section element
         
-        $('section').html('<table id="resultTable"><tr>' + th + '</tr></table>');
+        $('section').html('<table id="result"><tr>' + process + '</tr></table>');
         
-        $("#resultTable th").hide();
-        $("#resultTable th").each(function (index){
+        $("#result th").hide();
+        $("#result th").each(function (index){
             $(this).delay(index*500).show(1000);
         })
 }

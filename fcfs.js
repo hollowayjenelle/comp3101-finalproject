@@ -30,18 +30,18 @@ function deleteprocess(){
 function draw(){
     $('section').html('');
     var processtable = $('#process-table tr');
-    var th = '';
+    var process = '';
 
     $.each(processtable, function(key, value) {
       if (key == 0) return true;
       var executeTime = parseInt($(value.children[2]).children().first().val());
-      th += '<th><button class="btn2">P' + (key - 1) + '<br>Ex Time: ' + executeTime + 'ms</button></th>';
+      process += '<th><button class="btn2">P' + (key - 1) + '<br>Ex Time: ' + executeTime + 'ms</button></th>';
     });
 
-    $('section').html('<table id="resultTable"><tr>' + th + '</tr></table>');
+    $('section').html('<table id="result"><tr>' + process + '</tr></table>');
         
-        $("#resultTable th").hide();
-        $("#resultTable th").each(function (index){
+        $("#result th").hide();
+        $("#result th").each(function (index){
             $(this).delay(index*500).show(1000);
         })
 }

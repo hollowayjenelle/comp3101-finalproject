@@ -32,7 +32,7 @@ function deleteprocess(){
 function draw(){
     $('section').html('');
     var processtable = $('#process-table tr');
-    var th = '';
+    var process = '';
 
     var executeTimes = [];
 
@@ -53,13 +53,13 @@ function draw(){
 
     //for each value in the sorted execution time array, a table header with a button is created with the process and the execution time
     $.each(executeTimes, function(key, value){
-        th += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</button></th>';
+        process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</button></th>';
     });
         //table created within the section element
-        $('section').html('<table id="resultTable"><tr>' + th + '</tr></table>');
+        $('section').html('<table id="result"><tr>' + process + '</tr></table>');
         
-        $("#resultTable th").hide();
-        $("#resultTable th").each(function (index){
+        $("#result th").hide();
+        $("#result th").each(function (index){
             $(this).delay(index*500).show(1000);
         })
 }
