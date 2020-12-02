@@ -48,12 +48,12 @@ function draw(){
         if (a.burst == b.burst){
             return a.P - b.P
         }
-        return b.burst - a.burst
+        return a.burst - b.burst
     });
 
     //for each value in the sorted execution time array, a table header with a button is created with the process and the execution time
     $.each(burstarr, function(key, value){
-        process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</button></th>';
+        process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.burst + 'ms</button></th>';
     });
         //table created within the section element
         $('section').html('<table id="result"><tr>' + process + '</tr></table>');
