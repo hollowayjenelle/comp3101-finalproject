@@ -34,26 +34,26 @@ function draw(){
     var processtable = $('#process-table tr');
     var process = '';
 
-    var executeTimes = [];
+    var burstArr = [];
 
      //for each row, the execution time and the process # is extracted
     $.each(processtable, function(key, value){
         if (key == 0) return true;
-        var executeTime = parseInt($(value.children[1]).children().first().val());
-        executeTimes[key - 1] = {"executeTime": executeTime, "P": key -1};
+        var burst = parseInt($(value.children[1]).children().first().val());
+        burstArr[key - 1] = {"executeTime": burst, "P": key -1};
     });
 
     //compare and sort the execution times
-    executeTimes.sort(function (a, b){
-        if (a.executeTime == b.executeTime){
+    burstArr.sort(function (a, b){
+        if (a.burst == b.burst){
             return a.P - b.P
         }
-        return a.executeTime - b.executeTime
+        return a.burst - b.burst
     });
 
     //for each value in the sorted execution time array, a table header with a button is created with the process and the execution time
-    $.each(executeTimes, function(key, value){
-        process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</button></th>';
+    $.each(burstArr, function(key, value){
+        process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.burst + 'ms</button></th>';
     });
         //table created within the section element
         $('section').html('<table id="result"><tr>' + process + '</tr></table>');
