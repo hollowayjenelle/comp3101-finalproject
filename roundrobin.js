@@ -40,13 +40,13 @@ function draw(){
     var process = '';
 
     var quantum = $('#quantum').val();
-    var executeTimes = [];
+    var burstarr = [];
 
     //for each row, the execution time and the process # is extracted
     $.each(processtable, function(key, value){
         if(key == 0) return true;
-        var executeTime = parseInt($(value.children[2]).children().first().val());
-        executeTimes[key - 1] = {"executeTime": executeTime, "P": key - 1};
+        var burst = parseInt($(value.children[2]).children().first().val());
+        burstarr[key - 1] = {"executeTime": burst, "P": key - 1};
     });
 
     var complete = false; //variable to keep track of the execution time for the process has reached 0
@@ -56,10 +56,10 @@ function draw(){
         0, the quantum value is displayed if the execute time is greater than quantum. If not, 
         the execute time is displayed.
         */
-        $.each(executeTimes, function(key,value){
-            if(value.executeTime > 0){
-                process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + (value.executeTime > quantum ? quantum : value.executeTime) + 'ms</button></th>';
-                value.executeTime -= quantum;
+        $.each(burstarr, function(key,value){
+            if(value.burst > 0){
+                process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + (value.burst > quantum ? quantum : value.burst) + 'ms</button></th>';
+                value.burst -= quantum;
                 complete = false;
             }
         });
