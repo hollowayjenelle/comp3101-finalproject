@@ -40,11 +40,11 @@ function draw(){
     $.each(processtable, function(key, value){
         if (key == 0) return true;
         var burst = parseInt($(value.children[1]).children().first().val());
-        executeTimes[key - 1] = {"executeTime": burst, "P": key -1};
+        burstarr[key - 1] = {"executeTime": burst, "P": key -1};
     });
 
     //compare and sort the execution times
-    executeTimes.sort(function (a, b){
+    burstarr.sort(function (a, b){
         if (a.burst == b.burst){
             return a.P - b.P
         }
