@@ -34,27 +34,41 @@ function deleteprocess(){
   
 
 function draw() {
-  $('section').html('');
-  var processtable = $('#algoTable tr');
-  var process = '';
-  var executeTimes = [];
+   $('section').html('');
+  var bursts = [];
+  var proc = [];
+  var process ='';
+  var procArr = []; 
+  var timeArr= [];
 
-  $.each(processtable, function (key, value) {
+  $.each($('#algoTable tr'), function (key, value) {
       if (key == 0) return true;
-      var executeTime = parseInt($(value.children[2]).children().first().val());
-      var priority = parseInt($(value.children[3]).children().first().val());
-      executeTimes[key - 1] = { "executeTime": executeTime, "P": key - 1, "priority": priority };
+
+      var burst = parseInt($(value.children[2]).children().val());
+      var priority = parseInt($(value.children[3]).children().val());
+      
+      bursts[key-1] = { "time": burst, "priority": priority };
+      proc[key-1]={"p": key-1, "priority": priority}  
   });
 
-  executeTimes.sort(function (a, b) {
-      if (a.priority == b.priority)
-        return a.P - b.P;
-      return b.priority - a.priority
+  bursts.sort(function (a, b) {
+    return a.priority-b.priority;
   });
-
-  $.each(executeTimes, function (key, value) {
-      process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + value.executeTime + 'ms</button></th>';      
+  proc.sort(function (a, b) {
+    return   a.priority-b.priority;
+  });
+ 
+  $.each(bursts, function (key, value) {
+      timeArr.push(value.time);
     });
+    $.each(proc, function (key, value) {
+      procArr.push(value.p);
+    });
+
+    var i;
+    for (i = 0; i < timeArr.length; i++) {
+    process += '<th width: 50px;><button class="btn2">P' + procArr[i] + '<br>Ex Time: ' + timeArr[i] + 'ms</button></th>';
+}
 
     $('section').html('<table id="resultTable"><tr>' + process + '</tr></table>');
         
