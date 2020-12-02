@@ -57,7 +57,7 @@ function draw(){
         the execute time is displayed.
         */
         $.each(burstarr, function(key,value){
-            if(value.burst > 0){
+            if(value.burstTime > 0){
                 process += '<th width: 50px;><button class="btn2">P' + value.P + '<br>Ex Time: ' + (value.burstTime > quantum ? quantum : value.burstTime) + 'ms</button></th>';
                 value.burstTime -= quantum;
                 complete = false;
