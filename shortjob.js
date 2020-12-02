@@ -34,7 +34,7 @@ function draw(){
     var processtable = $('#process-table tr');
     var process = '';
 
-    var burstarr = [];
+    var executeTimes = [];
 
      //for each row, the execution time and the process # is extracted
     $.each(processtable, function(key, value){
