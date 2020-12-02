@@ -48,7 +48,7 @@ function draw(){
         if (a.burst == b.burst){
             return a.P - b.P
         }
-        return a.burst - b.burst
+        return b.burst - a.burst
     });
 
     //for each value in the sorted execution time array, a table header with a button is created with the process and the execution time
